@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: #F4EEDF;
+  color: #17150F;
+  font-family: 'Jost', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #C6A15B;
+  color: #0E0D0B;
+}
+
+:focus-visible {
+  outline: 2px solid #C6A15B;
+  outline-offset: 3px;
+}
+
+.route-line {
+  position: relative;
+}
+.route-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #C6A15B 0px,
+    #C6A15B 6px,
+    transparent 6px,
+    transparent 14px
+  );
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
+
+.waypoint {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #F4EEDF;
+  border: 2px solid #C6A15B;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  animation: fade-up 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { animation: none; }
+}
+
+.text-outline-gold {
+  -webkit-text-stroke: 1px #C6A15B;
+  color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.divider-diamond {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: #C6A15B;
+}
