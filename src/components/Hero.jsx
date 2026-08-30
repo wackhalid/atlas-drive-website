@@ -1,5 +1,4 @@
 import { t } from '../data/translations.js'
-import Logo from './Logo.jsx'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 const TRIPADVISOR = 'https://www.tripadvisor.com/AttractionProductReview-g293734-d34358133-Private_Morocco_Tours_and_Transfers_from_Marrakech-Marrakech_Marrakech_Safi.html'
@@ -22,8 +21,6 @@ export default function Hero({ lang }) {
 
       <div className="relative max-w-6xl mx-auto px-5 md:px-8">
         <div className="reveal flex flex-col items-center text-center">
-          <Logo className="w-20 h-20 md:w-24 md:h-24 mb-8" />
-
           <p className="font-mark text-gold text-[11px] md:text-xs tracking-widest2 mb-5 uppercase">
             {h.eyebrow}
           </p>

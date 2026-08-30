@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Logo from './Logo.jsx'
+import Flag from './Flag.jsx'
 import { languages, t } from '../data/translations.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
@@ -35,10 +36,11 @@ export default function Header({ lang, setLang }) {
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`px-3 py-1.5 text-xs tracking-wider font-body transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs tracking-wider font-body transition-colors ${
                   lang === l.code ? 'bg-gold text-ink' : 'text-sand/70 hover:text-gold'
                 }`}
               >
+                <Flag code={l.code} />
                 {l.label}
               </button>
             ))}
@@ -75,10 +77,11 @@ export default function Header({ lang, setLang }) {
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`px-3 py-1.5 text-xs rounded-full border border-gold/30 ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-full border border-gold/30 ${
                   lang === l.code ? 'bg-gold text-ink' : 'text-sand/70'
                 }`}
               >
+                <Flag code={l.code} />
                 {l.label}
               </button>
             ))}
