@@ -1,4 +1,4 @@
-import logoImage from '../assets/WhatsApp_Image_2026-02-11_at_22.53.16.jpeg'
+import logoImage from '../assets/logo.png'
 
 export default function Logo({ className = 'w-16 h-16' }) {
   return (
