@@ -31,12 +31,12 @@ export default function Header({ lang, setLang }) {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className="hidden sm:flex items-center border border-gold/30 rounded-full overflow-hidden">
+          <div className="flex items-center border border-gold/30 rounded-full overflow-hidden">
             {languages.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs tracking-wider font-body transition-colors ${
+                className={`flex items-center gap-1 px-1.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs tracking-wider font-body transition-colors ${
                   lang === l.code ? 'bg-gold text-ink' : 'text-sand/70 hover:text-gold'
                 }`}
               >
