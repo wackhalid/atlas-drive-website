@@ -1,4 +1,5 @@
 import { t } from '../data/translations.js'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 const IG = 'https://www.instagram.com/atlas_drive_'
@@ -23,7 +24,7 @@ export default function Contact({ lang }) {
             <p className="font-body text-sand/75 text-sm mb-6">Marrakech 40000, Morocco</p>
 
             <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-2">Phone / WhatsApp</p>
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-body text-sand/75 text-sm hover:text-gold">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" onClick={trackWhatsAppClick} className="font-body text-sand/75 text-sm hover:text-gold">
               +212 619 404 377
             </a>
           </div>
@@ -44,6 +45,7 @@ export default function Contact({ lang }) {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
+            onClick={trackWhatsAppClick}
             className="px-8 py-4 bg-gold text-ink font-semibold rounded-full hover:bg-gold-light transition-colors"
           >
             {t.bookNow[lang]}

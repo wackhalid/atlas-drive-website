@@ -1,5 +1,6 @@
 import { t } from '../data/translations.js'
 import ReservationCTA from './ReservationCTA.jsx'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 
@@ -32,6 +33,7 @@ export default function Activities({ lang }) {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
+            onClick={trackWhatsAppClick}
             className="inline-block px-8 py-4 border border-gold/50 text-gold font-medium rounded-full hover:bg-gold/10 transition-colors"
           >
             {a.cta}

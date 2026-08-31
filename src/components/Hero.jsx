@@ -1,4 +1,5 @@
 import { t } from '../data/translations.js'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 const TRIPADVISOR = 'https://www.tripadvisor.com/AttractionProductReview-g293734-d34358133-Private_Morocco_Tours_and_Transfers_from_Marrakech-Marrakech_Marrakech_Safi.html'
@@ -38,6 +39,7 @@ export default function Hero({ lang }) {
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
+              onClick={trackWhatsAppClick}
               className="px-8 py-4 bg-gold text-ink font-semibold tracking-wide rounded-full hover:bg-gold-light transition-colors w-full sm:w-auto text-center"
             >
               {h.cta1}

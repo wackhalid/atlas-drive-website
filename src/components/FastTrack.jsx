@@ -1,4 +1,5 @@
 import { t } from '../data/translations.js'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 const check = (
@@ -49,6 +50,7 @@ export default function FastTrack({ lang }) {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
+            onClick={trackWhatsAppClick}
             className="inline-block px-8 py-4 bg-gold text-ink font-semibold rounded-full hover:bg-gold-light transition-colors"
           >
             {f.cta}

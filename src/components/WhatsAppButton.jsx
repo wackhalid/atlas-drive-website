@@ -1,3 +1,5 @@
+import { trackWhatsAppClick } from '../data/analytics.js'
+
 const WHATSAPP = 'https://wa.me/212619404377'
 
 export default function WhatsAppButton() {
@@ -6,6 +8,7 @@ export default function WhatsAppButton() {
       href={WHATSAPP}
       target="_blank"
       rel="noreferrer"
+      onClick={trackWhatsAppClick}
       aria-label="Chat on WhatsApp"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-lg hover:bg-gold-light transition-colors"
     >

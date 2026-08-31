@@ -1,5 +1,6 @@
 import { t } from '../data/translations.js'
 import { bookingPlatformUrl } from '../data/pricing.js'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 
@@ -29,6 +30,7 @@ export default function ReservationCTA({ lang, dark = false }) {
           href={WHATSAPP}
           target="_blank"
           rel="noreferrer"
+          onClick={trackWhatsAppClick}
           className={`px-6 py-3 text-sm font-medium rounded-full text-center border transition-colors ${
             dark ? 'border-gold/50 text-gold hover:bg-gold/10' : 'border-ink/25 text-ink hover:bg-ink/5'
           }`}

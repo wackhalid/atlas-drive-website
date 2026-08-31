@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Logo from './Logo.jsx'
 import Flag from './Flag.jsx'
 import { languages, t } from '../data/translations.js'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 const anchors = ['about', 'services', 'pricing', 'fasttrack', 'activities', 'multiday', 'reviews', 'faq', 'contact']
@@ -49,6 +50,7 @@ export default function Header({ lang, setLang }) {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
+            onClick={trackWhatsAppClick}
             className="hidden sm:inline-block px-5 py-2.5 bg-gold text-ink text-sm font-semibold tracking-wide rounded-full hover:bg-gold-light transition-colors"
           >
             {t.bookNow[lang]}
@@ -86,7 +88,7 @@ export default function Header({ lang, setLang }) {
               </button>
             ))}
           </div>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-1 text-center px-5 py-3 bg-gold text-ink text-sm font-semibold rounded-full">
+          <a href={WHATSAPP} target="_blank" rel="noreferrer" onClick={trackWhatsAppClick} className="mt-1 text-center px-5 py-3 bg-gold text-ink text-sm font-semibold rounded-full">
             {t.bookNow[lang]}
           </a>
         </div>

@@ -1,5 +1,6 @@
 import { t } from '../data/translations.js'
 import ReservationCTA from './ReservationCTA.jsx'
+import { trackWhatsAppClick } from '../data/analytics.js'
 
 const WHATSAPP = 'https://wa.me/212619404377'
 
@@ -22,6 +23,7 @@ export default function MultiDay({ lang }) {
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
+              onClick={trackWhatsAppClick}
               className="reveal group block bg-ink rounded-lg p-8 hover:-translate-y-1 transition-transform"
             >
               <div className="flex items-baseline justify-between mb-4">
