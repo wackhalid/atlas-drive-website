@@ -5,22 +5,35 @@ const WHATSAPP = 'https://wa.me/212619404377'
 const TRIPADVISOR = 'https://www.tripadvisor.com/AttractionProductReview-g293734-d34358133-Private_Morocco_Tours_and_Transfers_from_Marrakech-Marrakech_Marrakech_Safi.html'
 
 const routeStops = ['Marrakech', 'High Atlas', 'Essaouira', 'Ouarzazate', 'Merzouga', 'Chefchaouen']
+const heroImages = ['/images/hero-1.jpg', '/images/hero-2.jpg', '/images/hero-3.jpg']
 
 export default function Hero({ lang }) {
   const h = t.hero[lang]
 
   return (
     <section id="top" className="relative bg-ink text-sand overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
-      <div className="absolute inset-0 bg-grain pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-ink" aria-hidden="true">
+        {heroImages.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt=""
+            aria-hidden="true"
+            className={`hero-slide hero-slide-${index + 1}`}
+          />
+        ))}
+      </div>
+      <div className="absolute inset-0 z-10 bg-black/60 pointer-events-none" />
+      <div className="absolute inset-0 z-20 bg-grain pointer-events-none" />
       <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
+        className="absolute inset-0 z-20 opacity-[0.08] pointer-events-none"
         style={{
           backgroundImage:
             'radial-gradient(circle at 20% 20%, #C6A15B 0, transparent 35%), radial-gradient(circle at 85% 60%, #C6A15B 0, transparent 40%)',
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-5 md:px-8">
+      <div className="relative z-30 max-w-6xl mx-auto px-5 md:px-8">
         <div className="reveal flex flex-col items-center text-center">
           <p className="font-mark text-gold text-[11px] md:text-xs tracking-widest2 mb-5 uppercase">
             {h.eyebrow}
