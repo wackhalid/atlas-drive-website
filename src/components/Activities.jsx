@@ -8,8 +8,17 @@ export default function Activities({ lang }) {
   const a = t.activities[lang]
 
   return (
-    <section id="activities" className="bg-ink py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
+    <section id="activities" className="relative bg-ink py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <img
+          src="/images/activities-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="section-bg"
+        />
+      </div>
+      <div className="absolute inset-0 z-10 bg-black/60 pointer-events-none" />
+      <div className="relative z-20 max-w-6xl mx-auto px-5 md:px-8">
         <div className="reveal text-center mb-16">
           <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-4">05 · Experiences</p>
           <h2 className="font-display text-4xl md:text-5xl text-sand mb-4">{a.title}</h2>

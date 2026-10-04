@@ -9,8 +9,18 @@ export default function Contact({ lang }) {
   const c = t.contact[lang]
 
   return (
-    <section id="contact" className="bg-ink text-sand py-24 md:py-32">
-      <div className="max-w-5xl mx-auto px-5 md:px-8">
+    <section id="contact" className="relative bg-ink text-sand py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <img
+          src="/images/contact-bg-1.jpg"
+          alt=""
+          aria-hidden="true"
+          className="section-bg"
+        />
+      </div>
+      <div className="absolute inset-0 z-10 bg-black/60 pointer-events-none" />
+
+      <div className="relative z-20 max-w-5xl mx-auto px-5 md:px-8">
         <div className="reveal text-center mb-16">
           <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-4">09 · Contact</p>
           <h2 className="font-display text-4xl md:text-5xl mb-4">{c.title}</h2>
@@ -27,11 +37,16 @@ export default function Contact({ lang }) {
             <a href={WHATSAPP} target="_blank" rel="noreferrer" onClick={trackWhatsAppClick} className="font-body text-sand/75 text-sm hover:text-gold">
               +212 619 404 377
             </a>
+
+            <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-2 mt-6">Call</p>
+            <a href="tel:+212676902097" className="font-body text-sand/75 text-sm hover:text-gold">
+              +212 676 902 097
+            </a>
           </div>
           <div>
             <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-2">Email</p>
-            <a href="mailto:kyourdrive@gmail.com" className="font-body text-sand/75 text-sm hover:text-gold block mb-6">
-              kyourdrive@gmail.com
+            <a href="mailto:atlasdrivecontact@gmail.com" className="font-body text-sand/75 text-sm hover:text-gold block mb-6">
+              atlasdrivecontact@gmail.com
             </a>
 
             <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-2">{c.hoursLabel}</p>

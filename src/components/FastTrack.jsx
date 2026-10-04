@@ -12,12 +12,21 @@ export default function FastTrack({ lang }) {
   const f = t.fastTrack[lang]
 
   return (
-    <section id="fasttrack" className="bg-parchment py-24 md:py-32">
-      <div className="max-w-5xl mx-auto px-5 md:px-8">
+    <section id="fasttrack" className="relative bg-ink py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <img
+          src="/images/fasttrack-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="section-bg"
+        />
+      </div>
+      <div className="absolute inset-0 z-10 bg-black/60 pointer-events-none" />
+      <div className="relative z-20 max-w-5xl mx-auto px-5 md:px-8">
         <div className="reveal text-center mb-16">
-          <p className="font-mark text-gold-dark text-[11px] tracking-widest2 uppercase mb-4">04 · VIP Airport</p>
-          <h2 className="font-display text-4xl md:text-5xl text-ink mb-4">{f.title}</h2>
-          <p className="font-body text-ink/60 max-w-md mx-auto">{f.subtitle}</p>
+          <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-4">04 · VIP Airport</p>
+          <h2 className="font-display text-4xl md:text-5xl text-sand mb-4">{f.title}</h2>
+          <p className="font-body text-sand/60 max-w-md mx-auto">{f.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
