@@ -1,21 +1,8 @@
 import Logo from './Logo.jsx'
+import { Link } from 'react-router-dom'
+import { business } from '../data/business.js'
+import { services } from '../data/services.js'
+import { getPublishedRoutes } from '../data/routes.js'
+import { useLanguage } from '../context/LanguageContext.jsx'
 import { t } from '../data/translations.js'
-
-export default function Footer({ lang }) {
-  return (
-    <footer className="bg-char text-sand/50 py-10 border-t border-gold/10">
-      <div className="max-w-6xl mx-auto px-5 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <Logo className="w-9 h-9" />
-          <div>
-            <p className="font-mark text-gold text-xs tracking-widest2">ATLAS DRIVE</p>
-            <p className="font-body text-[11px] text-sand/40 max-w-xs">{t.footer[lang]}</p>
-          </div>
-        </div>
-        <p className="font-body text-[11px] text-sand/35">
-          © {new Date().getFullYear()} Atlas Drive · Marrakech, Morocco
-        </p>
-      </div>
-    </footer>
-  )
-}
+export default function Footer() { const { lang } = useLanguage(); return <footer className="bg-char text-sand/50 py-12 border-t border-gold/10"><div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-4 gap-10"><div className="flex items-start gap-3"><Logo className="w-9 h-9" /><div><p className="font-mark text-gold text-xs tracking-widest2">ATLAS DRIVE</p><p className="font-body text-[11px] text-sand/40 max-w-xs mt-2">{t.footer[lang]}</p></div></div><div><h3 className="font-mark text-gold text-[10px] tracking-widest2 uppercase mb-4">Services</h3>{services.map((service) => <Link key={service.slug} to={`/services/${service.slug}`} className="block text-xs text-sand/55 hover:text-gold mb-2">{service.title}</Link>)}</div><div><h3 className="font-mark text-gold text-[10px] tracking-widest2 uppercase mb-4">Popular routes</h3>{getPublishedRoutes().slice(0, 6).map((route) => <Link key={route.slug} to={`/routes/${route.slug}`} className="block text-xs text-sand/55 hover:text-gold mb-2">{route.origin} to {route.destination}</Link>)}</div><div><h3 className="font-mark text-gold text-[10px] tracking-widest2 uppercase mb-4">Contact</h3><a href={`mailto:${business.email}`} className="block text-xs text-sand/55 hover:text-gold mb-2">{business.email}</a><a href={`tel:${business.phone}`} className="block text-xs text-sand/55 hover:text-gold mb-2">{business.phoneDisplay}</a><p className="text-xs text-sand/45">{business.address}</p></div></div><p className="max-w-6xl mx-auto px-5 md:px-8 mt-10 text-[11px] text-sand/35">© {new Date().getFullYear()} Atlas Drive · Marrakech, Morocco</p></footer> }

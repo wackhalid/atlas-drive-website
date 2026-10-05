@@ -1,36 +1,16 @@
-import { useState } from 'react'
-import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import Services from './components/Services.jsx'
-import Pricing from './components/Pricing.jsx'
-import FastTrack from './components/FastTrack.jsx'
-import Activities from './components/Activities.jsx'
-import MultiDay from './components/MultiDay.jsx'
-import Testimonials from './components/Testimonials.jsx'
-import FAQ from './components/FAQ.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
-import WhatsAppButton from './components/WhatsAppButton.jsx'
+import Layout from './layouts/Layout.jsx'
+import Home from './pages/Home.jsx'
+import Routes from './pages/Routes.jsx'
+import Services from './pages/Services.jsx'
+import RouteDetail from './pages/RouteDetail.jsx'
+import ServiceDetail from './pages/ServiceDetail.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import ContactPage from './pages/ContactPage.jsx'
+import NotFound from './pages/NotFound.jsx'
+import { getPublishedRoutes } from './data/routes.js'
+import { services } from './data/services.js'
+import { LanguageProvider } from './context/LanguageContext.jsx'
 
-export default function App() {
-  const [lang, setLang] = useState('en')
-
-  return (
-    <div className="font-body">
-      <Header lang={lang} setLang={setLang} />
-      <Hero lang={lang} />
-      <About lang={lang} />
-      <Services lang={lang} />
-      <Pricing lang={lang} />
-      <FastTrack lang={lang} />
-      <Activities lang={lang} />
-      <MultiDay lang={lang} />
-      <Testimonials lang={lang} />
-      <FAQ lang={lang} />
-      <Contact lang={lang} />
-      <Footer lang={lang} />
-      <WhatsAppButton />
-    </div>
-  )
-}
+function SiteLayout() { return <LanguageProvider><Layout /></LanguageProvider> }
+export const routes = [{ path: '/', element: <SiteLayout />, children: [{ index: true, element: <Home /> }, { path: 'services', element: <Services /> }, { path: 'services/:slug', element: <ServiceDetail />, getStaticPaths: () => services.map((service) => `services/${service.slug}`) }, { path: 'routes', element: <Routes /> }, { path: 'routes/:slug', element: <RouteDetail />, getStaticPaths: () => getPublishedRoutes().map((route) => `routes/${route.slug}`) }, { path: 'about', element: <AboutPage /> }, { path: 'contact', element: <ContactPage /> }, { path: '*', element: <NotFound /> }] }]
+export default routes

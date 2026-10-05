@@ -1,28 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBZ64QJ82Q"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JBZ64QJ82Q');
-    </script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-JBZ64QJ82Q');</script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atlas Drive | Luxury Touristic Transport in Morocco</title>
-    <meta name="description" content="Atlas Drive — premium private transfers, city tours, desert excursions and multi-day journeys across Morocco. Marrakech-based, English/French/Spanish/German speaking drivers, 24/7 WhatsApp booking." />
+    <meta name="description" content="Atlas Drive — premium private transfers, city tours, desert excursions and multi-day journeys across Morocco. Marrakech-based, multilingual drivers, 24/7 WhatsApp booking." />
     <meta property="og:title" content="Atlas Drive | Luxury Touristic Transport in Morocco" />
     <meta property="og:description" content="Premium private transfers, tours and desert adventures across Morocco. Book on WhatsApp, 24/7." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atlasdrivemorocco.com/" />
+    <meta property="og:image" content="https://atlasdrivemorocco.com/logo.png" />
+    <link rel="canonical" href="https://atlasdrivemorocco.com/" />
     <meta name="color-scheme" content="light" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
+      <input name="form-name" value="booking" />
+      <input name="name" /><input name="phone" /><input name="pickup" /><input name="destination" />
+      <input name="date" /><input name="time" /><input name="passengers" /><input name="luggage" />
+      <input name="vehicle" /><input name="notes" /><input name="route" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,5 +1,8 @@
 import { t } from '../data/translations.js'
 import ReservationCTA from './ReservationCTA.jsx'
+import { Link } from 'react-router-dom'
+
+const serviceSlugs = ['marrakech-airport-transfers', 'private-day-trips', 'private-transfers', 'multi-day-transportation']
 
 const icons = [
   <svg key="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7"><path d="M3 21l6-6M21 3l-6 6M9 15l3-8 8-3-3 8-8 3z" /></svg>,
@@ -31,14 +34,15 @@ export default function Services({ lang }) {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {s.items.map((item, i) => (
-            <div
+            <Link
+              to={`/services/${serviceSlugs[i]}`}
               key={item.title}
               className="reveal group border border-gold/20 rounded-lg p-8 hover:border-gold/50 transition-colors"
             >
               <div className="text-gold mb-5">{icons[i]}</div>
               <h3 className="font-display text-2xl text-sand mb-3">{item.title}</h3>
               <p className="font-body text-sm text-sand/60 leading-relaxed">{item.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
 

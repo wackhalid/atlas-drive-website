@@ -1,0 +1,3 @@
+import { Link } from 'react-router-dom'
+import { getRoute, getStartingPrice } from '../data/routes.js'
+export default function RelatedRoutes({ slugs = [] }) { return <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">{slugs.map((slug) => { const route = getRoute(slug); if (!route) return null; return <Link key={slug} to={`/routes/${slug}`} className="border border-gold/20 rounded-lg p-6 hover:border-gold/60 transition-colors"><p className="font-display text-xl text-ink">{route.origin} to {route.destination}</p><p className="text-sm text-gold-dark mt-3">From {getStartingPrice(route)} MAD →</p></Link> })}</div> }

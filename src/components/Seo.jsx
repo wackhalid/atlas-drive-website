@@ -1,0 +1,3 @@
+import { Head } from 'vite-react-ssg'
+import { business } from '../data/business.js'
+export default function Seo({ title, description, path = '/', image = '/og/atlas-drive.jpg', children }) { const url = `${business.siteUrl}${path}`; return <Head><title>{title}</title><meta name="description" content={description} /><link rel="canonical" href={url} /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={url} /><meta property="og:type" content="website" /><meta property="og:image" content={`${business.siteUrl}${image}`} /><meta property="og:locale" content="en_GB" /><meta name="twitter:card" content="summary_large_image" />{children}</Head> }

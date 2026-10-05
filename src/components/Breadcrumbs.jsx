@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom'
+export default function Breadcrumbs({ items }) { return <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-5 text-xs text-ink/55"><Link to="/" className="hover:text-gold-dark">Home</Link>{items.map((item) => <span key={item.label}> <span className="mx-2 text-gold-dark">/</span>{item.to ? <Link to={item.to} className="hover:text-gold-dark">{item.label}</Link> : item.label}</span>)}</nav> }

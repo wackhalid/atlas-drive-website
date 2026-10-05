@@ -30,8 +30,7 @@ export default function Contact({ lang }) {
         <div className="reveal grid sm:grid-cols-2 gap-8 mb-14 max-w-3xl mx-auto">
           <div>
             <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-2">{c.addressLabel}</p>
-            <p className="font-body text-sand/75 text-sm mb-1">123 Avenue Mohammed V</p>
-            <p className="font-body text-sand/75 text-sm mb-6">Marrakech 40000, Morocco</p>
+            <p className="font-body text-sand/75 text-sm mb-6">Jardin Anas, M'Hamid, Marrakech, Morocco</p>
 
             <p className="font-mark text-gold text-[11px] tracking-widest2 uppercase mb-2">Phone / WhatsApp</p>
             <a href={WHATSAPP} target="_blank" rel="noreferrer" onClick={trackWhatsAppClick} className="font-body text-sand/75 text-sm hover:text-gold">

@@ -58,7 +58,7 @@ export default function Hero({ lang }) {
               {h.cta1}
             </a>
             <a
-              href="#services"
+              href="/routes"
               className="px-8 py-4 border border-gold/50 text-gold font-medium tracking-wide rounded-full hover:bg-gold/10 transition-colors w-full sm:w-auto text-center"
             >
               {h.cta2}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://atlasdrivemorocco.com/sitemap.xml

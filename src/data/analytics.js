@@ -1,5 +1,1 @@
-export function trackWhatsAppClick() {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    window.gtag('event', 'whatsapp_click')
-  }
-}
+export { trackEvent, trackWhatsAppClick } from '../lib/analytics.js'
