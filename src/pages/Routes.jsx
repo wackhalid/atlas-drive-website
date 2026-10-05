@@ -1,0 +1,6 @@
+import { Link } from 'react-router-dom'
+import { getPublishedRoutes, getStartingPrice } from '../data/routes.js'
+import Seo from '../components/Seo.jsx'
+import Breadcrumbs from '../components/Breadcrumbs.jsx'
+import CtaBand from '../components/CtaBand.jsx'
+export default function Routes() { return <><Seo title="Private Transfers from Marrakech | Atlas Drive" description="Browse Atlas Drive private door-to-door transfers from Marrakech across Morocco, with WhatsApp booking." path="/routes" /><Breadcrumbs items={[{ label:'Routes' }]} /><main className="max-w-6xl mx-auto px-5 md:px-8 pb-20"><h1 className="font-display text-5xl text-ink mb-4">Private Transfers from Marrakech</h1><p className="max-w-2xl text-ink/65 leading-relaxed mb-12">Browse confirmed private vehicle prices for routes across Morocco. Distance and duration will be added when confirmed.</p><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">{getPublishedRoutes().map((route) => <Link key={route.slug} to={`/routes/${route.slug}`} className="border border-gold/20 rounded-lg p-6 hover:border-gold/60 transition-colors"><p className="font-display text-2xl text-ink">{route.origin} to {route.destination}</p><p className="text-sm text-gold-dark mt-4">From {getStartingPrice(route)} MAD →</p></Link>)}</div></main><CtaBand /></> }

@@ -1,21 +1,5 @@
-export const bookingPlatformUrl = 'https://atlasdrivetransport.netlify.app'
-
-export const directTrips = [
-  { route: 'Marrakech ↔ Essaouira', price: '112 €' },
-  { route: 'Marrakech Airport ↔ Medina', price: '22 €' },
-  { route: 'Marrakech ↔ Casablanca Airport', price: '165 €' },
-  { route: 'Marrakech ↔ Agadir', price: '170 €' },
-  { route: 'Marrakech ↔ Rabat', price: '245 €' },
-  { route: 'Marrakech ↔ Taghazout', price: '190 €' },
-  { route: 'Marrakech ↔ El Jadida', price: '175 €' },
-  { route: 'Marrakech ↔ Imlil', price: '105 €' },
-  { route: 'Marrakech ↔ Fès', price: '420 €' },
-  { route: 'Essaouira ↔ Agadir', price: '170 €' },
-  { route: 'Marrakech ↔ Casablanca (city centre)', price: '180 €' },
-]
-
-export const dayVehicles = [
-  { name: 'SUV', capacity: 4, price: '1500 dh' },
-  { name: 'Van', capacity: 7, price: '1900 dh' },
-  { name: 'Big Van', capacity: 17, price: '2400 dh' },
-]
+import { getPublishedRoutes, getStartingPrice } from './routes.js'
+export const bookingPlatformUrl = '/contact#book'
+const routeLabels = [['marrakech-to-essaouira','Marrakech ↔ Essaouira'],['marrakech-airport-to-marrakech','Marrakech Airport ↔ Medina'],['marrakech-to-casablanca-airport','Marrakech ↔ Casablanca Airport'],['marrakech-to-agadir','Marrakech ↔ Agadir'],['marrakech-to-rabat','Marrakech ↔ Rabat'],['marrakech-to-taghazout','Marrakech ↔ Taghazout'],['marrakech-to-el-jadida','Marrakech ↔ El Jadida'],['marrakech-to-imlil','Marrakech ↔ Imlil'],['marrakech-to-fes','Marrakech ↔ Fès'],['essaouira-to-agadir','Essaouira ↔ Agadir'],['marrakech-to-casablanca','Marrakech ↔ Casablanca']]
+export const directTrips = routeLabels.map(([slug, route]) => ({ slug, route, price: `${getStartingPrice(getPublishedRoutes().find((item) => item.slug === slug))} MAD` }))
+export const dayVehicles = [{ name: 'SUV', capacity: 4, price: '1500 dh' }, { name: 'Van', capacity: 7, price: '1900 dh' }, { name: 'Big Van', capacity: 17, price: '2400 dh' }]

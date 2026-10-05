@@ -1,0 +1,6 @@
+import { Link } from 'react-router-dom'
+import { services } from '../data/services.js'
+import Seo from '../components/Seo.jsx'
+import Breadcrumbs from '../components/Breadcrumbs.jsx'
+import CtaBand from '../components/CtaBand.jsx'
+export default function Services() { return <><Seo title="Private Transport Services in Morocco | Atlas Drive" description="Explore private airport transfers, day trips, chauffeur service and multi-day transportation with Atlas Drive." path="/services" /><Breadcrumbs items={[{ label:'Services' }]} /><main className="max-w-6xl mx-auto px-5 md:px-8 pb-20"><h1 className="font-display text-5xl text-ink mb-4">Our Services</h1><p className="max-w-2xl text-ink/65 leading-relaxed mb-12">Private transport shaped around how you travel through Morocco.</p><div className="grid md:grid-cols-2 gap-6">{services.map((service) => <Link key={service.slug} to={`/services/${service.slug}`} className="border border-gold/20 rounded-lg p-8 hover:border-gold/60"><h2 className="font-display text-3xl text-ink">{service.title}</h2><p className="text-ink/65 mt-3">{service.intro}</p><span className="inline-block mt-6 text-sm text-gold-dark">Explore service →</span></Link>)}</div></main><CtaBand /></> }

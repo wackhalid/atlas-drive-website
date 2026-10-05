@@ -1,0 +1,17 @@
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { getRoute } from '../data/routes.js'
+import { business } from '../data/business.js'
+import Seo from '../components/Seo.jsx'
+import Breadcrumbs from '../components/Breadcrumbs.jsx'
+import RouteHero from '../components/RouteHero.jsx'
+import RouteFacts from '../components/RouteFacts.jsx'
+import RoutePricing from '../components/RoutePricing.jsx'
+import IncludedList from '../components/IncludedList.jsx'
+import BookingForm from '../components/BookingForm.jsx'
+import Reviews from '../components/Reviews.jsx'
+import RelatedRoutes from '../components/RelatedRoutes.jsx'
+import CtaBand from '../components/CtaBand.jsx'
+import { trackEvent } from '../lib/analytics.js'
+export default function RouteDetail() { const { slug } = useParams(); const route = getRoute(slug); useEffect(() => { if (route) trackEvent('route_page_view', { slug: route.slug }) }, [route]); if (!route) return <NotFound />; return <><Seo title={route.seo.title} description={route.seo.description} path={`/routes/${route.slug}`} /><Breadcrumbs items={[{ label:'Routes', to:'/routes' }, { label:`${route.origin} to ${route.destination}` }]} /><RouteHero route={route} /><RouteFacts route={route} /><main className="max-w-5xl mx-auto px-5 md:px-8 py-10 space-y-16"><section><h2 className="font-display text-4xl text-ink mb-6">About this transfer</h2>{route.about.map((paragraph) => <p key={paragraph} className="text-ink/70 leading-relaxed mb-4">{paragraph}</p>)}</section><section><h2 className="font-display text-4xl text-ink mb-6">Choose your vehicle</h2><RoutePricing route={route} /></section><section><h2 className="font-display text-4xl text-ink mb-6">What’s included</h2><IncludedList keys={['private','driver','door','ac','water','wifi','childSeat','flight','tolls']} /></section><section><h2 className="font-display text-4xl text-ink mb-6">Pickup and drop-off</h2><p className="text-ink/70 leading-relaxed">{route.pickup}</p></section><section><h2 className="font-display text-4xl text-ink mb-6">Stops along the way</h2><p className="text-ink/70 leading-relaxed">{route.stops}</p></section><section><h2 className="font-display text-4xl text-ink mb-6">Book your transfer</h2><BookingForm route={route} /></section><section><h2 className="font-display text-4xl text-ink mb-6">What travelers say</h2><Reviews limit={3} /></section><section><h2 className="font-display text-4xl text-ink mb-6">Frequently asked questions</h2><div className="space-y-3">{route.faqs.map((faq) => <details key={faq.q} className="border border-ink/15 rounded-lg p-5"><summary className="font-display text-xl text-ink cursor-pointer">{faq.q}</summary><p className="text-sm text-ink/70 leading-relaxed mt-3">{faq.a}</p></details>)}</div></section><section><h2 className="font-display text-4xl text-ink mb-6">Related routes</h2><RelatedRoutes slugs={route.related} /></section></main><CtaBand /></> }
+function NotFound() { return <section className="min-h-[70vh] pt-40 text-center"><h1 className="font-display text-5xl text-ink">Route not found</h1><p className="mt-4 text-ink/60">This transfer page is not available.</p></section> }
