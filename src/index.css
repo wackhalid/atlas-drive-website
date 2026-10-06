@@ -15,10 +15,13 @@ body { background-color: #F4EEDF; color: #17150F; font-family: 'Jost', sans-seri
 .hero-slide-2 { animation-delay: 6s; }
 .hero-slide-3 { animation-delay: 12s; }
 @keyframes hero-slideshow { 0% { opacity: 0; transform: scale(1); } 8%, 28% { opacity: 1; } 36% { opacity: 0; transform: scale(1.1); } 100% { opacity: 0; transform: scale(1.1); } }
+.route-hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; opacity: 0; animation: route-hero-slideshow 10s linear infinite; }
+.route-hero-slide-2 { animation-delay: 5s; }
+@keyframes route-hero-slideshow { 0% { opacity: 0; transform: scale(1); } 8%, 42% { opacity: 1; } 50% { opacity: 0; transform: scale(1.1); } 100% { opacity: 0; transform: scale(1.1); } }
 @keyframes ken-burns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
 .section-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: ken-burns 18s ease-in-out infinite alternate; }
 @media (max-width: 767px) { body { padding-bottom: 64px; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal, .hero-slide, .section-bg { animation: none; } .hero-slide:first-child { opacity: 1; transform: scale(1); } .section-bg { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal, .hero-slide, .section-bg, .route-hero-slide { animation: none; } .hero-slide:first-child, .route-hero-slide-1 { opacity: 1; transform: scale(1); } .section-bg { transform: scale(1); } }
 .text-outline-gold { -webkit-text-stroke: 1px #C6A15B; color: transparent; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
