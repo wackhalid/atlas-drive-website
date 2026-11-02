@@ -15,6 +15,12 @@ export const t = {
   bookNow: {
     en: 'Book on WhatsApp', fr: 'Réserver sur WhatsApp', es: 'Reservar por WhatsApp', de: 'Über WhatsApp buchen',
   },
+  routes: {
+    en: { title: 'Our Routes & Prices', subtitle: 'Browse private transfers across Morocco with clear vehicle prices and simple WhatsApp booking.', from: 'From', book: 'Book', connector: 'to' },
+    fr: { title: 'Nos Trajets & Tarifs', subtitle: 'Découvrez nos transferts privés à travers le Maroc avec des tarifs clairs et une réservation simple sur WhatsApp.', from: 'À partir de', book: 'Réserver', connector: 'à' },
+    es: { title: 'Nuestras Rutas y Precios', subtitle: 'Descubre nuestros traslados privados por Marruecos con precios claros y reserva sencilla por WhatsApp.', from: 'Desde', book: 'Reservar', connector: 'a' },
+    de: { title: 'Unsere Routen & Preise', subtitle: 'Entdecken Sie private Transfers durch Marokko mit klaren Fahrzeugpreisen und einfacher Buchung per WhatsApp.', from: 'Ab', book: 'Buchen', connector: 'nach' },
+  },
   hero: {
     en: {
       eyebrow: 'Marrakech, Morocco — Private Touristic Transport',

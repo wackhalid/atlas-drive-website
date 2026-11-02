@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { t } from '../data/translations.js'
 import { trackWhatsAppClick } from '../data/analytics.js'
 
@@ -57,12 +58,12 @@ export default function Hero({ lang }) {
             >
               {h.cta1}
             </a>
-            <a
-              href="/routes"
+            <Link
+              to="/routes"
               className="px-8 py-4 border border-gold/50 text-gold font-medium tracking-wide rounded-full hover:bg-gold/10 transition-colors w-full sm:w-auto text-center"
             >
               {h.cta2}
-            </a>
+            </Link>
           </div>
 
           <a
