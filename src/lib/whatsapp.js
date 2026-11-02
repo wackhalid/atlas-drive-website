@@ -24,13 +24,13 @@ export function buildWhatsAppLink({ route = '', vehicle = '', name = '', pickup 
 }
 
 const bookingLabels = {
-  en: { from: 'From', to: 'To', date: 'Date', time: 'Time', passengers: 'Passengers', luggage: 'Luggage', vehicle: 'Vehicle', phone: 'Phone', name: 'Name', notes: 'Notes' },
-  fr: { from: 'De', to: 'À', date: 'Date', time: 'Heure', passengers: 'Passagers', luggage: 'Bagages', vehicle: 'Véhicule', phone: 'Téléphone', name: 'Nom', notes: 'Notes' },
-  es: { from: 'Desde', to: 'Hasta', date: 'Fecha', time: 'Hora', passengers: 'Pasajeros', luggage: 'Equipaje', vehicle: 'Vehículo', phone: 'Teléfono', name: 'Nombre', notes: 'Notas' },
-  de: { from: 'Von', to: 'Nach', date: 'Datum', time: 'Uhrzeit', passengers: 'Passagiere', luggage: 'Gepäck', vehicle: 'Fahrzeug', phone: 'Telefon', name: 'Name', notes: 'Notizen' },
+  en: { from: 'From', to: 'To', date: 'Date', time: 'Time', passengers: 'Passengers', luggage: 'Luggage', vehicle: 'Vehicle', price: 'Price', phone: 'Phone', name: 'Name', notes: 'Notes' },
+  fr: { from: 'De', to: 'À', date: 'Date', time: 'Heure', passengers: 'Passagers', luggage: 'Bagages', vehicle: 'Véhicule', price: 'Prix', phone: 'Téléphone', name: 'Nom', notes: 'Notes' },
+  es: { from: 'Desde', to: 'Hasta', date: 'Fecha', time: 'Hora', passengers: 'Pasajeros', luggage: 'Equipaje', vehicle: 'Vehículo', price: 'Precio', phone: 'Teléfono', name: 'Nombre', notes: 'Notas' },
+  de: { from: 'Von', to: 'Nach', date: 'Datum', time: 'Uhrzeit', passengers: 'Passagiere', luggage: 'Gepäck', vehicle: 'Fahrzeug', price: 'Preis', phone: 'Telefon', name: 'Name', notes: 'Notizen' },
 }
 
-export function buildBookingWhatsAppLink({ locale = 'en', vehicle = '', name = '', pickup = '', destination = '', date = '', time = '', passengers = '', luggage = '', phone = '', notes = '' } = {}) {
+export function buildBookingWhatsAppLink({ locale = 'en', vehicle = '', name = '', pickup = '', destination = '', date = '', time = '', passengers = '', luggage = '', price = '', phone = '', notes = '' } = {}) {
   const labels = bookingLabels[locale] || bookingLabels.en
   const vehicleData = vehicles[vehicle]
   const lines = ['*🚗 New Booking – Atlas Drive*']
@@ -44,8 +44,9 @@ export function buildBookingWhatsAppLink({ locale = 'en', vehicle = '', name = '
   addLine('👥', labels.passengers, passengers)
   addLine('🧳', labels.luggage, luggage)
   addLine('🚙', labels.vehicle, vehicleData ? `${vehicleData.name} (${vehicleData.passengers})` : vehicle)
+  addLine('💰', labels.price, price ? `${price} MAD` : '')
   addLine('📞', labels.phone, phone)
   addLine('👤', labels.name, name)
   addLine('📝', labels.notes, notes)
-  return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(lines.join('\\n'))}`
+  return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`
 }
